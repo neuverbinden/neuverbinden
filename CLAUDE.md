@@ -35,6 +35,14 @@ Maximilian Wettschereck, Mannheim/Eisenberg.
   (Iowan Old Style/Palatino-Stack), System-Sans für Fließtext. Tokens in
   `assets/css/style.css` (`:root`), inkl. Schatten-/Radius-System für Tiefe
   (`--shadow-sm/--shadow/--shadow-hover`, `--radius: 10px`).
+- **"Nachtruhe"-Zusatz:** Hero-Sektionen (`.hero`/`.page-hero`), Testimonial-Abschnitte
+  und der QAT-Abschluss auf `/einzelarbeit/` tragen zusätzlich die Klasse `.night` –
+  dunkler Waldnacht-Hintergrund (`--night`/`--night-deep`) mit Kupfer-Akzent
+  (`--copper`/`--copper-bright`) statt Cream/Ochre. Bewusster Kontrast zum sonst
+  hellen Cream-Grundton, soll die 200€-Preisklasse hochwertiger transportieren als
+  reines Sage-Grün. Restliche Textabschnitte und `.band`-Sektionen (Sage) bleiben
+  unverändert hell. Neue Sektionen mit Hero-/Testimonial-/Bonus-Charakter sollten
+  ebenfalls `.night` bekommen, damit das Muster konsistent bleibt.
 - Terminbuchung (kostenloses Kennenlerngespräch): **meetergo**
   (`https://cal.meetergo.com/neuverbinden/discovery`), deutsches Unternehmen, Server
   Frankfurt, AVV vorhanden. Eingebunden als Click-to-Load-iframe auf
@@ -105,6 +113,11 @@ Maximilian Wettschereck, Mannheim/Eisenberg.
 
 ## Offen (nächste Schritte)
 
+- Preise auf `/einzelarbeit/` (aktuell 140€/200€/500€) sind laut Betreiber **nicht
+  dauerhaft haltbar** – eine Erhöhung ist angekündigt, aber Betrag/Zeitpunkt noch
+  offen (Stand 26.07.2026). Nicht selbstständig ändern, sondern auf Ansage warten;
+  bei Änderung auch das 3er-Paket ("3 × 200€ einzeln – du sparst 100€") neu
+  durchrechnen.
 - Migrations-/Cutover-Plan für den Wechsel von WordPress (all-inkl) auf diese statische
   Seite (Redirects, DNS/Hosting-Umstellung, WordPress-Abschaltung) – noch nicht
   ausgearbeitet.

@@ -12,6 +12,15 @@
   --shadow-sm: 0 1px 2px rgba(30, 48, 44, 0.06), 0 2px 8px rgba(30, 48, 44, 0.05);
   --shadow: 0 4px 12px rgba(30, 48, 44, 0.08), 0 12px 28px rgba(30, 48, 44, 0.08);
   --shadow-hover: 0 8px 18px rgba(30, 48, 44, 0.1), 0 20px 36px rgba(30, 48, 44, 0.1);
+
+  /* Nachtruhe — dark section palette (hero, testimonials, QAT) */
+  --night: #142621;
+  --night-deep: #0e1b17;
+  --copper: #c17a3f;
+  --copper-bright: #d69456;
+  --cream-on-night: #f2ede1;
+  --muted-on-night: #b9b2a0;
+  --line-on-night: rgba(242, 237, 225, 0.14);
 }
 
 * {
@@ -259,6 +268,97 @@ nav.main-nav a[aria-current="page"] {
 
 .band {
   background: var(--sage);
+}
+
+/* Nachtruhe — dark treatment for hero / testimonial / QAT sections */
+.night {
+  background: var(--night);
+  color: var(--cream-on-night);
+}
+
+.night h1,
+.night h2,
+.night h3 {
+  color: var(--cream-on-night);
+}
+
+.night .eyebrow {
+  color: var(--copper-bright);
+}
+
+.night .sub,
+.night .lede,
+.night p {
+  color: var(--muted-on-night);
+}
+
+.night .section-title {
+  color: var(--cream-on-night);
+}
+
+.night .section-sub {
+  color: var(--muted-on-night);
+}
+
+.night .link-cta {
+  color: var(--cream-on-night);
+  border-color: var(--line-on-night);
+}
+
+.night .link-cta:hover {
+  color: var(--copper-bright);
+  border-color: var(--copper-bright);
+}
+
+.night .btn {
+  background: var(--copper);
+  color: var(--night-deep);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), 0 6px 16px rgba(0, 0, 0, 0.22);
+}
+
+.night .btn:hover {
+  background: var(--copper-bright);
+}
+
+.night .pull-quote {
+  border-left-color: var(--copper);
+}
+
+.night .pull-quote p {
+  color: var(--cream-on-night);
+}
+
+.night .pull-quote cite {
+  color: var(--muted-on-night);
+}
+
+.night .source-tag {
+  color: var(--muted-on-night);
+}
+
+.night .testimonial-card {
+  background: var(--night-deep);
+  border-color: var(--line-on-night);
+}
+
+.night .testimonial-card blockquote {
+  color: var(--cream-on-night);
+}
+
+.night .testimonial-card figcaption {
+  color: var(--muted-on-night);
+}
+
+.night .testimonial-name {
+  color: var(--cream-on-night);
+}
+
+.night .hero-media {
+  background: linear-gradient(155deg, rgba(20, 38, 33, 0.9), rgba(14, 27, 23, 0.65));
+}
+
+.night.page-hero {
+  padding: 4rem 0 2.4rem;
 }
 
 .eyebrow {
