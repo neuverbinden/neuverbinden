@@ -1,5 +1,11 @@
 # neuverbinden.de – Neuaufbau
 
+> Dieses Projekt/Verzeichnis ist **ausschließlich für die Website**.
+> Instagram-Vorlagen & Social-Media-Grafiken liegen in einem eigenen,
+> getrennten Projekt: `D:\daten\claude\Social Media` (eigene CLAUDE.md
+> dort). Bei Anfragen zu Social-Media-Content dorthin verweisen statt hier
+> zu arbeiten.
+
 Statische Website (kein Build-Tool, kein Framework, kein Backend) als Ersatz für die
 bisherige WordPress/Elementor-Seite auf all-inkl. Praxis für Faszienmanöver (Human
 Garage) und Körperarbeit (u. a. Neural Reset Therapy® nach Lawrence Woods) von
