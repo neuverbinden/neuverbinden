@@ -24,8 +24,14 @@ Maximilian Wettschereck, Mannheim/Eisenberg.
   wo aktuell noch WordPress läuft (wird dabei abgelöst, nicht ergänzt). Deshalb: keine
   Custom-Domain-Anbindung an GitHub Pages, keine CNAME-Datei nötig – die Domain
   neuverbinden.de bleibt ausschließlich bei all-inkl.
-- **Beta-Modus aktiv:** Alle Seiten haben `<meta name="robots" content="noindex,
-  nofollow">`, `robots.txt` sperrt global. Vor echtem Livegang auf all-inkl entfernen.
+- **Beta-Modus beendet (Stand 26.07.2026):** `noindex`/`nofollow` ist von allen Seiten
+  entfernt, `robots.txt` erlaubt Crawling und verweist auf `sitemap.xml`. Jede Seite hat
+  `<link rel="canonical">` sowie Open-Graph-/Twitter-Card-Tags (Titel, Beschreibung,
+  passendes reales Foto je Seite) für bessere Such-/Social-Vorschau. Canonical-/OG-/
+  Sitemap-URLs nutzen bewusst die "schöne" Verzeichnis-Form (`https://www.neuverbinden.de/kurse/`),
+  obwohl interne Links weiterhin explizit `index.html` enthalten (siehe nächster Punkt) –
+  das ist kein Widerspruch: Canonical beschreibt die öffentliche URL-Form für Suchmaschinen,
+  interne Links sind aus Kompatibilitätsgründen expliziter.
 - Interne Links sind bewusst **volle relative Pfade inkl. `index.html`**
   (z. B. `../kurse/index.html`, nicht `../kurse/`), nicht die "schönen" Verzeichnis-URLs.
   Grund: funktioniert dadurch identisch per Doppelklick/`file://`, über GitHub Pages
@@ -66,9 +72,12 @@ Maximilian Wettschereck, Mannheim/Eisenberg.
 - Keine Google Fonts CDN (System-Font-Stack), keine Analytics/Tracker – gleiche
   DSGVO-Grundhaltung wie beim Workshop-Projekt.
 - Impressum extern verlinkt (`https://www.mein.online-impressum.de/neuverbinden-de/`,
-  bestehender Account, nicht neu angelegt). `datenschutz/index.html` ist ein
-  **Entwurf** (Kennzeichnung im HTML-Kommentar) – Betreiber prüft selbst/mit Anwalt vor
-  Livegang, kein Ersatz für Rechtsberatung.
+  bestehender Account, nicht neu angelegt). `datenschutz/index.html` ist seit 26.07.2026
+  auf All-Inkl-Hosting umgestellt (Abschnitt 3) und enthält einen eigenen Abschnitt zur
+  Fyndery-Warteliste (Abschnitt 6, externer Link, keine Datenübermittlung durch
+  neuverbinden.de selbst). Trotzdem kein Ersatz für Rechtsberatung – bei Gelegenheit vom
+  Betreiber/einer Anwältin gegenprüfen lassen, bevor größere neue Datenverarbeitungen
+  hinzukommen.
 
 ## Rechtlicher Kontext (wichtig für zukünftige Text-Änderungen)
 
@@ -130,8 +139,13 @@ Maximilian Wettschereck, Mannheim/Eisenberg.
 - Zwei Foto-Slots auf `/faszienmanoever/` waren offen, sind inzwischen gefüllt; ggf.
   weitere Bildwünsche des Betreibers offen.
 - `/kurse/` Mannheim-Warteliste-Button verlinkt bewusst extern auf Fyndery (nicht auf
-  `/kontakt/`) – hält das Fyndery-Profil "warm"/sichtbar, solange `neuverbinden.de`
-  noch `noindex` ist. Kostet nichts (Warteliste ist keine Bezahl-Buchung, keine
-  10%-Gebühr). Sobald die eigene Seite live+indexiert ist und sich als Sichtbarkeits-
-  Kanal bewährt hat: Fyndery-Frage neu bewerten (kündigen vs. weiterlaufen lassen).
-  Eisenberg lief nie über Fyndery, sondern direkt über den Klub.
+  `/kontakt/`) – hält das Fyndery-Profil "warm"/sichtbar. Kostet nichts (Warteliste ist
+  keine Bezahl-Buchung, keine 10%-Gebühr). `noindex` ist zwar jetzt entfernt, aber die
+  Seite braucht noch Zeit, um von Google tatsächlich gecrawlt/gerankt zu werden – erst
+  wenn sich neuverbinden.de selbst als Sichtbarkeits-Kanal bewährt hat, Fyndery-Frage
+  neu bewerten (kündigen vs. weiterlaufen lassen). Eisenberg lief nie über Fyndery,
+  sondern direkt über den Klub.
+- SEO-Basics sind drin (siehe Architektur-Entscheidungen oben), aber kein JSON-LD/
+  strukturierte Daten (z. B. LocalBusiness-Schema) – dafür fehlt eine bestätigte
+  öffentliche Geschäftsadresse. Falls gewünscht, mit Betreiber klären, was als Adresse
+  angegeben werden darf, bevor so ein Schema ergänzt wird.
