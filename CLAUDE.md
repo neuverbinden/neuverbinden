@@ -123,5 +123,9 @@ Maximilian Wettschereck, Mannheim/Eisenberg.
   ausgearbeitet.
 - Zwei Foto-Slots auf `/faszienmanoever/` waren offen, sind inzwischen gefüllt; ggf.
   weitere Bildwünsche des Betreibers offen.
-- `/kurse/` Eisenberg-Warteliste-Button: forms.app-Vorbefüllung des Betreffs technisch
-  noch nicht geprüft.
+- `/kurse/` Mannheim-Warteliste-Button verlinkt bewusst extern auf Fyndery (nicht auf
+  `/kontakt/`) – hält das Fyndery-Profil "warm"/sichtbar, solange `neuverbinden.de`
+  noch `noindex` ist. Kostet nichts (Warteliste ist keine Bezahl-Buchung, keine
+  10%-Gebühr). Sobald die eigene Seite live+indexiert ist und sich als Sichtbarkeits-
+  Kanal bewährt hat: Fyndery-Frage neu bewerten (kündigen vs. weiterlaufen lassen).
+  Eisenberg lief nie über Fyndery, sondern direkt über den Klub.
