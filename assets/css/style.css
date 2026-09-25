@@ -516,13 +516,13 @@ ul.clean li::before {
 .card p {
   font-size: 0.92rem;
   color: var(--forest-soft);
-  margin: 0 0 0.5rem;
+  margin: 0 0 1.3rem;
 }
 
 .card .btn,
 .card .link-cta {
-  margin-top: 1.3rem;
-  align-self: flex-start;
+  margin-top: auto;
+  align-self: center;
 }
 
 /* Tier cards (Einzelarbeit) */
@@ -596,6 +596,17 @@ ul.clean li::before {
 .tier-card .btn {
   margin-top: auto;
   text-align: center;
+}
+
+.tier-cta-row {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.tier-cta-row .btn {
+  margin-top: 0;
 }
 
 /* Steps (Ablauf einer Sitzung) */
