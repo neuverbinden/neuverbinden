@@ -570,7 +570,10 @@ ul.clean li::before {
 .tier-card h3 {
   font-size: 1.2rem;
   margin-bottom: 0.7rem;
-  min-height: 2.9rem;
+}
+
+.tier-card h3 .filler {
+  visibility: hidden;
 }
 
 .tier-col {
@@ -578,8 +581,12 @@ ul.clean li::before {
   flex-direction: column;
 }
 
+.tier-col .tier-card {
+  flex: 1 0 auto;
+}
+
 .tier-feedback {
-  flex: 1;
+  margin-top: 1.3rem;
 }
 
 .tier-card p {
