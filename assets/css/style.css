@@ -576,15 +576,6 @@ ul.clean li::before {
   visibility: hidden;
 }
 
-.tier-col {
-  display: flex;
-  flex-direction: column;
-}
-
-.tier-col .tier-card {
-  flex: 1 0 auto;
-}
-
 .tier-feedback {
   margin-top: 1.3rem;
 }
