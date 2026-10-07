@@ -57,9 +57,24 @@ Maximilian Wettschereck, Mannheim/Eisenberg.
   ebenfalls `.night` bekommen, damit das Muster konsistent bleibt.
 - Terminbuchung (kostenloses Kennenlerngespräch): **meetergo**
   (`https://cal.meetergo.com/neuverbinden/discovery`), deutsches Unternehmen, Server
-  Frankfurt, AVV vorhanden. Eingebunden als Click-to-Load-iframe auf
-  `/einzelarbeit/#kennenlerngespraech` ("Inline Embed"-Typ im meetergo-Dashboard wählen,
-  nicht Popup/Sidebar/Video).
+  Frankfurt, AVV vorhanden. Seit 26.07.2026 **direkt eingebettet** (kein Klick mehr
+  nötig) auf `/einzelarbeit/#kennenlerngespraech` – bewusste Entscheidung des
+  Betreibers: die Seite ist ohnehin nur über einen Button mit erkennbarer
+  Kontakt-Absicht erreichbar, daher berechtigtes Interesse (Art. 6 Abs. 1 lit. f
+  DSGVO) statt Klick-Gate. Datenschutzerklärung Abschnitt 4 begründet das explizit.
+  "Inline Embed"-Typ im meetergo-Dashboard wählen, nicht Popup/Sidebar/Video.
+- **WhatsApp-Kontakt (seit 26.07.2026):** Klick-Reveal-Link auf `/einzelarbeit/`
+  (neben "Schreib mir stattdessen") und `/kontakt/`. Nummer `+4917641461085`
+  (dedizierte Business-Nummer, nicht Maximilians privates Handy). Bewusst kein
+  statischer `<a href="https://wa.me/...">` im HTML, sondern per JS erst nach
+  Klick zusammengebaut (`assets/js/embeds.js`, neue Funktion `revealLink()`) –
+  Schutz vor einfachen Telefonnummern-Scrapern, die nur den statischen
+  Seitentext durchsuchen (kein Schutz vor gezieltem Auslesen des
+  `<script>`-Inhalts, das wurde dem Betreiber so erklärt und akzeptiert).
+  `embeds.js` wird dadurch weiterhin aktiv gebraucht (`loadEmbed()` aktuell
+  nirgends mehr, `revealLink()` auf Einzelarbeit + Kontakt) – nicht löschen.
+  Datenschutzerklärung Abschnitt 7 beschreibt das Klick-Reveal-Verhalten und
+  den Meta-Bezug von WhatsApp.
 - Kontaktformular: forms.app (`https://lx2cqpcb.forms.app/kontaktformular-1`, eigenes
   Formular, nicht das vom Workshop-Projekt). **Bewusste Abweichung vom
   Workshop-Click-to-Load-Muster:** Auf `/kontakt/` ist es direkt eingebettet (lädt mit
