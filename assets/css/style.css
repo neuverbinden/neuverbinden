@@ -522,7 +522,7 @@ ul.clean li::before {
 .card .btn,
 .card .link-cta {
   margin-top: auto;
-  align-self: center;
+  align-self: flex-start;
 }
 
 /* Tier cards (Einzelarbeit) */
@@ -572,14 +572,6 @@ ul.clean li::before {
   margin-bottom: 0.7rem;
 }
 
-.tier-card h3 .filler {
-  visibility: hidden;
-}
-
-.tier-feedback {
-  margin-top: 1.3rem;
-}
-
 .tier-card p {
   font-size: 0.93rem;
   color: var(--forest-soft);
@@ -604,17 +596,6 @@ ul.clean li::before {
 .tier-card .btn {
   margin-top: auto;
   text-align: center;
-}
-
-.tier-cta-row {
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.tier-cta-row .btn {
-  margin-top: 0;
 }
 
 /* Steps (Ablauf einer Sitzung) */

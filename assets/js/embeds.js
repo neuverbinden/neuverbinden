@@ -12,17 +12,6 @@ function loadEmbed(buttonId, wrapId, src, title) {
   });
 }
 
-// Öffnet ein Ziel (z. B. WhatsApp) direkt bei Klick in einem neuen Tab, statt
-// erst einen Link einzublenden. Die Zieladresse wird auch hier erst hier zur
-// Klickzeit zusammengesetzt, damit sie nicht im statischen HTML steht.
-function openDirect(buttonId, href) {
-  var button = document.getElementById(buttonId);
-  if (!button) return;
-  button.addEventListener("click", function () {
-    window.open(href, "_blank", "noopener");
-  });
-}
-
 // Baut einen Link (z. B. WhatsApp) erst nach Klick zusammen, damit die Zieladresse
 // nicht schon beim Laden der Seite im statischen HTML steht (Schutz vor einfachem
 // automatisiertem Abgreifen, z. B. Telefonnummern-Scraper).
