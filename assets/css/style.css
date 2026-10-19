@@ -984,6 +984,11 @@ ul.clean li::before {
   margin-bottom: 0.8rem;
 }
 
+.location-card .status.status-soldout {
+  color: #fff;
+  background: #b3261e;
+}
+
 .location-card h3 {
   font-size: 1.15rem;
   margin-bottom: 0.6rem;
