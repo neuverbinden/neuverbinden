@@ -969,8 +969,8 @@ ul.clean li::before {
   }
 }
 
-/* Workshop promo box (Kurse) */
-.workshop-promo {
+/* Promo card (Kurse): Text + grünes Band, für Workshop- und Kurs-Box */
+.promo-card {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -979,78 +979,13 @@ ul.clean li::before {
   box-shadow: var(--shadow);
 }
 
-.workshop-promo-text {
+.promo-card-text {
   flex: 1;
   background: var(--cream-raised);
   padding: 2rem 2.2rem;
 }
 
-.workshop-promo-text h3 {
-  font-size: 1.6rem;
-  margin: 0.4rem 0 1.1rem;
-}
-
-.workshop-promo-text p {
-  margin: 0 0 0.9rem;
-  color: var(--forest-soft);
-}
-
-.workshop-promo-text p:last-child {
-  margin-bottom: 0;
-}
-
-.workshop-promo-band {
-  background: var(--forest);
-  color: var(--cream-on-night);
-  padding: 1.6rem 2.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1.4rem;
-}
-
-.workshop-promo-band-info {
-  display: flex;
-  gap: 2.2rem;
-  flex-wrap: wrap;
-}
-
-.workshop-promo-band-info strong {
-  display: block;
-  font-size: 1.02rem;
-}
-
-.workshop-promo-band-info span {
-  display: block;
-  font-size: 0.85rem;
-  color: var(--muted-on-night);
-  margin-top: 0.2rem;
-}
-
-@media (max-width: 720px) {
-  .workshop-promo-band {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-/* Location cards (Kurse) */
-.location-card {
-  background: var(--cream-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  padding: 1.8rem;
-}
-
-.location-card.secondary {
-  background: transparent;
-  border-style: dashed;
-  padding: 1.4rem 1.8rem;
-}
-
-.location-card .status {
+.promo-card-text .status {
   display: inline-block;
   font-size: 0.7rem;
   letter-spacing: 0.08em;
@@ -1063,19 +998,59 @@ ul.clean li::before {
   margin-bottom: 0.8rem;
 }
 
-.location-card .status.status-soldout {
+.promo-card-text .status.status-soldout {
   color: #fff;
   background: #b3261e;
 }
 
-.location-card h3 {
-  font-size: 1.15rem;
-  margin-bottom: 0.6rem;
+.promo-card-text h3 {
+  font-size: 1.6rem;
+  margin: 0.4rem 0 1.1rem;
 }
 
-.location-card p {
-  font-size: 0.94rem;
+.promo-card-text p {
+  margin: 0 0 0.9rem;
   color: var(--forest-soft);
+}
+
+.promo-card-text p:last-child {
+  margin-bottom: 0;
+}
+
+.promo-card-band {
+  background: var(--forest);
+  color: var(--cream-on-night);
+  padding: 1.6rem 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+}
+
+.promo-card-band-info {
+  display: flex;
+  gap: 2.2rem;
+  flex-wrap: wrap;
+}
+
+.promo-card-band-info strong {
+  display: block;
+  font-size: 1.02rem;
+}
+
+.promo-card-band-info span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted-on-night);
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 720px) {
+  .promo-card-band {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .location-grid {
