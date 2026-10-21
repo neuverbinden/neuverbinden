@@ -956,6 +956,20 @@ ul.clean li::before {
   font-size: 0.95rem;
 }
 
+/* Kurse: Workshop-Box und Mannheim-Kurs nebeneinander, wo Platz ist */
+.kurse-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .kurse-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Workshop promo box (Kurse) */
 .workshop-promo {
   border-radius: var(--radius);
