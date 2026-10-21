@@ -991,8 +991,12 @@ ul.clean li::before {
 }
 
 .workshop-promo-text p {
-  margin: 0;
+  margin: 0 0 0.9rem;
   color: var(--forest-soft);
+}
+
+.workshop-promo-text p:last-child {
+  margin-bottom: 0;
 }
 
 .workshop-promo-band {
