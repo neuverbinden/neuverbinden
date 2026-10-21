@@ -956,6 +956,94 @@ ul.clean li::before {
   font-size: 0.95rem;
 }
 
+/* Workshop promo box (Kurse) */
+.workshop-promo {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.workshop-promo-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "text media";
+  background: var(--cream-raised);
+}
+
+.workshop-promo-media {
+  grid-area: media;
+}
+
+.workshop-promo-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.workshop-promo-text {
+  grid-area: text;
+  padding: 2.4rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.workshop-promo-text h3 {
+  font-size: 1.6rem;
+  margin: 0.4rem 0 1.1rem;
+}
+
+.workshop-promo-text p {
+  margin: 0;
+  color: var(--forest-soft);
+}
+
+.workshop-promo-band {
+  background: var(--forest);
+  color: var(--cream-on-night);
+  padding: 1.6rem 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+}
+
+.workshop-promo-band-info {
+  display: flex;
+  gap: 2.2rem;
+  flex-wrap: wrap;
+}
+
+.workshop-promo-band-info strong {
+  display: block;
+  font-size: 1.02rem;
+}
+
+.workshop-promo-band-info span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted-on-night);
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 720px) {
+  .workshop-promo-top {
+    grid-template-columns: 1fr;
+    grid-template-areas: "media" "text";
+  }
+
+  .workshop-promo-media {
+    aspect-ratio: 4 / 5;
+  }
+
+  .workshop-promo-band {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 /* Location cards (Kurse) */
 .location-card {
   background: var(--cream-raised);
