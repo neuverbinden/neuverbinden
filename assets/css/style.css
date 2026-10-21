@@ -961,7 +961,6 @@ ul.clean li::before {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  align-items: start;
 }
 
 @media (max-width: 860px) {
@@ -972,12 +971,16 @@ ul.clean li::before {
 
 /* Workshop promo box (Kurse) */
 .workshop-promo {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
 }
 
 .workshop-promo-text {
+  flex: 1;
   background: var(--cream-raised);
   padding: 2rem 2.2rem;
 }
