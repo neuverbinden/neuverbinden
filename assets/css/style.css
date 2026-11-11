@@ -526,6 +526,14 @@ ul.clean li::before {
   align-self: center;
 }
 
+.card .card-price {
+  margin-top: auto;
+}
+
+.card .card-price + .btn {
+  margin-top: 0;
+}
+
 /* Tier cards (Einzelarbeit) */
 .tiers {
   display: grid;
