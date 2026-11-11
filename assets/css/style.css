@@ -72,6 +72,7 @@ a {
 /* Buttons & links */
 .btn {
   display: inline-block;
+  font-family: inherit;
   padding: 0.85rem 1.8rem;
   border-radius: 10px;
   background: var(--ochre);
