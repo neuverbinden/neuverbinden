@@ -246,6 +246,37 @@ nav.main-nav a[aria-current="page"] {
   max-width: 46ch;
 }
 
+/* Zwei gleich breite Buttons im Startseiten-Hero */
+.hero-cta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: max-content;
+}
+
+.hero-cta .btn {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.hero-cta-note {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+@media (max-width: 860px) {
+  .hero-cta {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 22rem;
+  }
+
+  .hero-cta .btn {
+    white-space: normal;
+  }
+}
+
 @media (max-width: 860px) {
   .hero.hero-video {
     min-height: 520px;
