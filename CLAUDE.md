@@ -1,166 +1,95 @@
-# neuverbinden.de – Neuaufbau
+# neuverbinden.de – Projektgedächtnis
 
-> Dieses Projekt/Verzeichnis ist **ausschließlich für die Website**.
-> Instagram-Vorlagen & Social-Media-Grafiken liegen in einem eigenen,
-> getrennten Projekt: `D:\daten\claude\Social Media` (eigene CLAUDE.md
-> dort). Bei Anfragen zu Social-Media-Content dorthin verweisen statt hier
-> zu arbeiten.
+Stand: 21.11.2026. Website von Maximilian Wettschereck (Faszienmanöver-Coach, Mannheim).
+Sprache mit dem Betreiber: Deutsch, Du-Form. Texte auf der Website: Du-Form, Ich-Form für Maximilian.
 
-Statische Website (kein Build-Tool, kein Framework, kein Backend) als Ersatz für die
-bisherige WordPress/Elementor-Seite auf all-inkl. Praxis für Faszienmanöver (Human
-Garage) und Körperarbeit (u. a. Neural Reset Therapy® nach Lawrence Woods) von
-Maximilian Wettschereck, Mannheim/Eisenberg.
+> Social-Media-Grafiken liegen in einem eigenen Projekt (`D:\daten\claude\Social Media`).
+> Die Workshop-Landingpage mit anderen Coaches ist ein Schwesterprojekt (`D:\daten\claude\Landing`).
 
-## Architektur-Entscheidungen (bewusst, nicht ändern ohne Rücksprache)
+## Ordner und Umgebungen
 
-- Reines HTML/CSS/JS, kein Framework, kein npm/Build-Schritt – gleiche bewusste
-  Entscheidung wie beim Schwester-Projekt (Faszienmanöver-Workshop-Landingpage,
-  `D:\daten\claude\landing`, Repo `github.com/neuverbinden/faszienmanoever`). Betreiber
-  ist von WordPress/Elementor bewusst weg, u. a. wegen der Editier-Umständlichkeit.
-- Repo: `https://github.com/neuverbinden/neuverbinden.git`.
-- **Hosting-Strategie unterscheidet sich vom Workshop-Projekt:** GitHub Pages ist hier
-  nur eine **Test-/Vorschau-Umgebung**, kein Ziel-Hosting. Der eigentliche Livegang
-  erfolgt später per Datei-Upload (FTP/SFTP) auf den bestehenden all-inkl-Webspace,
-  wo aktuell noch WordPress läuft (wird dabei abgelöst, nicht ergänzt). Deshalb: keine
-  Custom-Domain-Anbindung an GitHub Pages, keine CNAME-Datei nötig – die Domain
-  neuverbinden.de bleibt ausschließlich bei all-inkl.
-- **Beta-Modus beendet (Stand 26.07.2026):** `noindex`/`nofollow` ist von allen Seiten
-  entfernt, `robots.txt` erlaubt Crawling und verweist auf `sitemap.xml`. Jede Seite hat
-  `<link rel="canonical">` sowie Open-Graph-/Twitter-Card-Tags (Titel, Beschreibung,
-  passendes reales Foto je Seite) für bessere Such-/Social-Vorschau. Canonical-/OG-/
-  Sitemap-URLs nutzen bewusst die "schöne" Verzeichnis-Form (`https://www.neuverbinden.de/kurse/`),
-  obwohl interne Links weiterhin explizit `index.html` enthalten (siehe nächster Punkt) –
-  das ist kein Widerspruch: Canonical beschreibt die öffentliche URL-Form für Suchmaschinen,
-  interne Links sind aus Kompatibilitätsgründen expliziter.
-- Interne Links sind bewusst **volle relative Pfade inkl. `index.html`**
-  (z. B. `../kurse/index.html`, nicht `../kurse/`), nicht die "schönen" Verzeichnis-URLs.
-  Grund: funktioniert dadurch identisch per Doppelklick/`file://`, über GitHub Pages
-  und später auf all-inkl, ohne serverseitige Verzeichnis-Index-Auflösung vorauszusetzen.
-- Informationsarchitektur ist bewusst **mehrseitig statt Ein-Seiten-Scroll** (Gegensatz
-  zur alten WordPress-Seite, die faktisch nur Anker-Navigation auf einer Seite hatte) –
-  Ziel: mehr indexierbare Inhalte für Google. Seiten: `/`, `/faszienmanoever/`,
-  `/einzelarbeit/`, `/kurse/`, `/ueber-mich/`, `/kontakt/` (nur Footer, nicht Hauptnav),
-  `/datenschutz/`.
-- Design-System bewusst **eigenständig**, nicht vom Workshop-Projekt übernommen (das
-  Cream/Navy/Orange-System dort gehört zur Zusammenarbeit mit anderen Coaches, nicht
-  Maximilians eigener Marke). Hier: Cream/Waldgrün/Ocker, Serif-Überschriften
-  (Iowan Old Style/Palatino-Stack), System-Sans für Fließtext. Tokens in
-  `assets/css/style.css` (`:root`), inkl. Schatten-/Radius-System für Tiefe
-  (`--shadow-sm/--shadow/--shadow-hover`, `--radius: 10px`).
-- **"Nachtruhe"-Zusatz:** Hero-Sektionen (`.hero`/`.page-hero`), Testimonial-Abschnitte
-  und der QAT-Abschluss auf `/einzelarbeit/` tragen zusätzlich die Klasse `.night` –
-  dunkler Waldnacht-Hintergrund (`--night`/`--night-deep`) mit Kupfer-Akzent
-  (`--copper`/`--copper-bright`) statt Cream/Ochre. Bewusster Kontrast zum sonst
-  hellen Cream-Grundton, soll die 200€-Preisklasse hochwertiger transportieren als
-  reines Sage-Grün. Restliche Textabschnitte und `.band`-Sektionen (Sage) bleiben
-  unverändert hell. Neue Sektionen mit Hero-/Testimonial-/Bonus-Charakter sollten
-  ebenfalls `.night` bekommen, damit das Muster konsistent bleibt.
-- Terminbuchung (kostenloses Kennenlerngespräch): **meetergo**
-  (`https://cal.meetergo.com/neuverbinden/discovery`), deutsches Unternehmen, Server
-  Frankfurt, AVV vorhanden. Seit 26.07.2026 **direkt eingebettet** (kein Klick mehr
-  nötig) auf `/einzelarbeit/#kennenlerngespraech` – bewusste Entscheidung des
-  Betreibers: die Seite ist ohnehin nur über einen Button mit erkennbarer
-  Kontakt-Absicht erreichbar, daher berechtigtes Interesse (Art. 6 Abs. 1 lit. f
-  DSGVO) statt Klick-Gate. Datenschutzerklärung Abschnitt 4 begründet das explizit.
-  "Inline Embed"-Typ im meetergo-Dashboard wählen, nicht Popup/Sidebar/Video.
-- **WhatsApp-Kontakt (seit 26.07.2026):** Klick-Reveal-Link auf `/einzelarbeit/`
-  (neben "Schreib mir stattdessen") und `/kontakt/`. Nummer `+4917641461085`
-  (dedizierte Business-Nummer, nicht Maximilians privates Handy). Bewusst kein
-  statischer `<a href="https://wa.me/...">` im HTML, sondern per JS erst nach
-  Klick zusammengebaut (`assets/js/embeds.js`, neue Funktion `revealLink()`) –
-  Schutz vor einfachen Telefonnummern-Scrapern, die nur den statischen
-  Seitentext durchsuchen (kein Schutz vor gezieltem Auslesen des
-  `<script>`-Inhalts, das wurde dem Betreiber so erklärt und akzeptiert).
-  `embeds.js` wird dadurch weiterhin aktiv gebraucht (`loadEmbed()` aktuell
-  nirgends mehr, `revealLink()` auf Einzelarbeit + Kontakt) – nicht löschen.
-  Datenschutzerklärung Abschnitt 7 beschreibt das Klick-Reveal-Verhalten und
-  den Meta-Bezug von WhatsApp.
-- Kontaktformular: forms.app (`https://lx2cqpcb.forms.app/kontaktformular-1`, eigenes
-  Formular, nicht das vom Workshop-Projekt). **Bewusste Abweichung vom
-  Workshop-Click-to-Load-Muster:** Auf `/kontakt/` ist es direkt eingebettet (lädt mit
-  der Seite, kein Klick nötig – expliziter Wunsch des Betreibers, Datenschutz-Text
-  beschreibt das ehrlich). Auf `/einzelarbeit/` bleibt es Click-to-Load, dort aber als
-  Inline-Reveal auf derselben Seite (kein Seitenwechsel zu Kontakt mehr).
-- Bezahlung der 1:1-Sessions läuft **nicht** über einen Online-Checkout auf der Seite,
-  sondern persönlich nach dem Termin (bar/SumUp/Zahlungslink) – bewusst, da der Betreiber
-  Termine ohnehin persönlich abstimmt ("wir vereinbaren sowieso einen Termin").
-- Keine Google Fonts CDN (System-Font-Stack), keine Analytics/Tracker – gleiche
-  DSGVO-Grundhaltung wie beim Workshop-Projekt.
-- Impressum extern verlinkt (`https://www.mein.online-impressum.de/neuverbinden-de/`,
-  bestehender Account, nicht neu angelegt). `datenschutz/index.html` ist seit 26.07.2026
-  auf All-Inkl-Hosting umgestellt (Abschnitt 3) und enthält einen eigenen Abschnitt zur
-  Fyndery-Warteliste (Abschnitt 6, externer Link, keine Datenübermittlung durch
-  neuverbinden.de selbst). Trotzdem kein Ersatz für Rechtsberatung – bei Gelegenheit vom
-  Betreiber/einer Anwältin gegenprüfen lassen, bevor größere neue Datenverarbeitungen
-  hinzukommen.
+| Was | Wo | Zweck |
+| --- | --- | --- |
+| Entwurf (Quelle der Wahrheit) | `D:\daten\claude\Neuverbinden` | Git-Repo `github.com/neuverbinden/neuverbinden`, Branch `main` |
+| Testseite | `https://neuverbinden.github.io/neuverbinden/` | GitHub Pages aus `main`, nur Vorschau |
+| Upload-Ordner Live | `D:\daten\claude\Neuverbinden-Upload-NEU` | 1:1 Kopie für FTP auf all-inkl, plus `.htaccess` |
+| Live-Seite | `https://www.neuverbinden.de` | all-inkl (Apache), Upload per FTP durch Maximilian |
+| Zweitdomain | `D:\daten\claude\Faszienmanoever-Upload` | nur `.htaccess` für faszienmanöver.de / faszienmanoever.de |
+| Alt | `D:\daten\claude\Neuverbinden-Upload` | Stand vor dem Relaunch (Okt 2026), nicht mehr pflegen |
+| Alt-Snapshot | Branch `live-vorher` im Repo | alte Live-Seite zum Vergleich |
 
-## Rechtlicher Kontext (wichtig für zukünftige Text-Änderungen)
+**Ablauf bei Änderungen:** Erst im Entwurf ändern → committen und pushen → auf GitHub Pages prüfen →
+geänderte Dateien in `Neuverbinden-Upload-NEU` kopieren → Maximilian lädt per FTP hoch → live per `curl` prüfen.
+Neue Großvorhaben laufen „erst nur auf GitHub", bis Maximilian die Freigabe gibt.
 
-- Betreiber ist **noch nicht** Heilpraktiker (fehlt noch ca. 10 Monate ab 26.07.2026) –
-  keine Heilungs-/Behandlungs-Sprache für eigene Werbetexte ("behandeln", "heilen",
-  "Schmerzen lindern" als Versprechen). Safe-Sprache: Anspannung, Beweglichkeit,
-  Wohlbefinden, Leichtigkeit, Ruhe.
-- **Neural Reset Therapy® (NRT)**: Betreiber ist ausgebildet, aber **nicht** in der
-  fortgeschrittenen Zertifizierung – Formulierung immer "ausgebildet in", nie
-  "zertifiziert" oder Alleinstellungs-/Seltenheits-Behauptungen ("einer von X").
-- **Human Garage Faszienmanöver**: hier ist er tatsächlich zertifiziert – diese Aussage
-  ("einer der ersten von Human Garage ausgebildeten und zertifizierten Coaches in
-  Deutschland") ist geprüft und darf stehen bleiben.
-- Testimonials: Betreiber hat sich bewusst für **vollständige Übernahme statt
-  Selektion** entschieden (eigene rechtliche Einschätzung: "Reviews sind freie
-  Meinungsäußerung"), inkl. einiger Zitate mit recht direkter Schmerz-/
-  Behandlungssprache (z. B. Andrea, Ute, Margarete auf `/einzelarbeit/`). Das ist eine
-  bewusste Risikoentscheidung des Betreibers, nicht versehentlich stehen gelassen.
-- **QAT (Quantum Alignment Technique)** ist bewusst nicht Teil der drei Haupt-Tiers,
-  sondern ein eigener, spät platzierter Abschnitt am Ende von `/einzelarbeit/` (nach
-  FAQ, vor Footer) – kein Preis, kein Buchungsbutton, nur "im Kennenlerngespräch
-  ansprechen". Sprache bewusst nervensystem-/erfahrungsbasiert, keine konkrete
-  neurologische Wirkmechanismus-Behauptung.
+**Upload-Ordner neu erzeugen** (wenn viel geändert wurde):
+```
+git archive main -- agb assets begleitung datenschutz einzelarbeit faszienmanoever images index.html kontakt kurse robots.txt sitemap.xml ueber-mich wie-ich-arbeite workshop workshop-danke | tar -x -C "/d/daten/claude/Neuverbinden-Upload-NEU"
+```
+Nicht hochladen: `qrkurs/`, `landing/` (nur GitHub-Pages-Ersatz, live übernimmt das die `.htaccess`), `CLAUDE.md`, `.gitignore`, `Dokumente/`.
+Bei großen Updates: Maximilian löscht alles auf dem Server und lädt den ganzen Ordner hoch (versteckte Dateien anzeigen wegen `.htaccess`).
 
-## Bilder
+## Technik
 
-- `images/` enthält echte Fotos (eigenes Shooting + Human-Garage-Summit Berlin).
-  Betreiber hat explizit bestätigt, an allen Fotos mit anderen Personen die Rechte zu
-  haben. `Overhead-elbow-torque.png` wurde aus einem Video-Screenshot manuell
-  zugeschnitten (Decke/Fuß im Vordergrund entfernt) – bei Bedarf Original in der
-  Bild-Historie/beim Betreiber erfragen, falls ein anderer Ausschnitt gewünscht ist.
-- `Logos/HG-FascialManeuversCertifiedCoach*.png` sind Maximilians eigenes Zertifikats-
-  Badge (kopiert aus dem Workshop-Projekt) – zulässig, da es seine eigene Zertifizierung
-  dokumentiert, nicht die Workshop-Kooperation.
-- `Neuverbinden - Logo.png` / `Neuverbinden (12).png`: offizielle Wortmarken-Dateien
-  (Cream/Waldgrün/Gold, mit Tagline) – aktuell **nicht** im Header verwendet (dort
-  reiner CSS-Text-Logo für Lesbarkeit in Nav-Größe), liegen aber bereit falls doch
-  gewünscht.
+- Reines HTML/CSS/JS, kein Framework, kein Build. Interne Links immer mit `index.html` (z. B. `../kurse/index.html`).
+- Design-Tokens in `assets/css/style.css` (`:root`): Cream, Waldgrün (`--forest`), Ocker-Buttons, dunkle `.night`-Sektionen, Sage-`.band`-Sektionen. Keine Flyer-Farben (Gelb) übernehmen.
+- **Cache-Busting:** Alle Seiten laden `style.css?v=NN` und `embeds.js?v=NN`. Bei jeder CSS-Änderung die Nummer in allen HTML-Dateien hochzählen (aktuell `v=26`, embeds `v=2`). Ohne das sehen Wiederkehrer alte Styles.
+- Komponenten: `.promo-card` (Text + grünes Band, Kurse-Seite), `.kurse-grid` (zwei Boxen nebeneinander, gleich hoch per Grid-Stretch), `.cards`/`.card` mit `.card-price` (Preise auf gleicher Höhe), `.testimonials`, `.faq-item` (details), `.photo-strip`, `.zigzag`.
+- Gleich hohe Boxen: über CSS-Grid-Stretch lösen, nicht über verschachteltes Flexbox. Das ist schon zweimal schiefgegangen.
+- WhatsApp-Links werden nie statisch ins HTML geschrieben, sondern per JS beim Klick gebaut (`openDirect()` / `revealLink()` in `assets/js/embeds.js`). Nummer `+4917641461085`.
+- Kontaktformular forms.app `https://lx2cqpcb.forms.app/kontaktformular-1`, Kennenlerngespräch meetergo `https://cal.meetergo.com/neuverbinden/discovery` (eingebettet auf `/einzelarbeit/#kennenlerngespraech`).
+- Prüfen: Browser-Screenshots mit Hard-Reload (Strg+Umschalt+R). GitHub Pages cacht auch HTML kurz, daher nach Push mit `until curl ... | grep ...` warten.
 
-## Workflow
+## Seiten und Inhalt (Stand Relaunch 11.11.2026)
 
-- Texte werden vom Betreiber in `Dokumente\Texte.txt` gepflegt (nicht in Git, siehe
-  `.gitignore`). `Dokumente\Inhaltsplan.md` ist die Planungs-/Entscheidungs-Historie
-  (ebenfalls nicht in Git) – bei Rückfragen zu "warum ist das so" dort nachschauen,
-  bevor im Chat neu gefragt wird.
-- `git init`/`git push`/Login-pflichtige Git-Befehle führt der Nutzer selbst aus
-  (kein `gh` CLI auf diesem Rechner verfügbar, kein `git` im PATH dieser Shell).
+Hauptmenü: Startseite · Einzelarbeit · Workshops & Kurse · Faszienmanöver · Über mich.
+Footer: Impressum (extern) · Datenschutz · AGB · Kontakt · Wie ich arbeite · Instagram · YouTube, rechts „Maximilian Wettschereck · Mannheim".
 
-## Offen (nächste Schritte)
+- **Leitsatz:** „Beweglicher. Ruhiger im Kopf. Leichter." Unterzeile: „Loslassen braucht Halt. Ich halte. Du lässt los."
+- **Startseite:** drei Kacheln („Erkennst du dich wieder?"), „So sehe ich es", „Drei Wege" (Erleben ab 20 € / Einzeln 180 € / Dranbleiben = Begleitung im Kennenlerngespräch), Bewertungen, Kurz-Bio, Hinweis zur ärztlichen Behandlung. Hero-Video `images/Kreis.mp4`.
+- **Einzelarbeit:** eine Einzelsession, 90 Min, 180 €, Tullastraße 14. Auch online per Zoom (nur Faszienmanöver). Begleitung als Abschnitt `#begleitung`. `/begleitung/` leitet dorthin weiter (live per 301 in `.htaccess`).
+- **Workshops & Kurse:** Workshop-Box + Montagsabend-Box nebeneinander, Kurse im Verein (Edingen, Seckenheim), Für Vereine/Praxen/Gruppen.
+  - Montagskurs heißt weiter „Loslassen & Runterfahren", jeden Montag 18:30–19:30, 20 €, Anmeldung über Fyndery mit `?ref=website` (volle Slug-URL).
+- **Workshop `/workshop/`:** Sa 05.12.2026, 11–13 Uhr, Tullastraße 14, 68161 Mannheim. Seit 21.11. nur noch reguläre Preise: Allein 49 €, **Bring a Friend** 79 € (nicht „Zu zweit", weil man auch zwei Einzeltickets kaufen kann). Stripe-Link `https://buy.stripe.com/4gM9AT0wW6EMagRgaM5ZC01`. Einzelsession danach 30 Min 59 €. Keine maximale Teilnehmerzahl.
+- **`/workshop-danke/`:** Ziel der Stripe-Weiterleitung, `noindex`, nicht in Navigation/Sitemap. Klingel bei der Chiropraktikmanufaktur Kaufmann, Innenhof rechts die Treppe runter.
+- **Faszienmanöver:** SEO-Seite für „Human Garage deutsch". Hinweis, dass Neuverbinden kein Teil von Human Garage ist.
+- **Über mich:** inkl. „Wozu ich heute stehe" (Energiearbeit) und QAT in der Ausbildung – bleibt so.
+- **Wie ich arbeite:** nicht im Hauptmenü, verlinkt aus Footer und Einzelarbeit-FAQ.
+- Alexandras QAT-Zitat ist beschriftet mit „nach einer Einzelsession".
 
-- Preise auf `/einzelarbeit/` (aktuell 140€/200€/500€) sind laut Betreiber **nicht
-  dauerhaft haltbar** – eine Erhöhung ist angekündigt, aber Betrag/Zeitpunkt noch
-  offen (Stand 26.07.2026). Nicht selbstständig ändern, sondern auf Ansage warten;
-  bei Änderung auch das 3er-Paket ("3 × 200€ einzeln – du sparst 100€") neu
-  durchrechnen.
-- Migrations-/Cutover-Plan für den Wechsel von WordPress (all-inkl) auf diese statische
-  Seite (Redirects, DNS/Hosting-Umstellung, WordPress-Abschaltung) – noch nicht
-  ausgearbeitet.
-- Zwei Foto-Slots auf `/faszienmanoever/` waren offen, sind inzwischen gefüllt; ggf.
-  weitere Bildwünsche des Betreibers offen.
-- `/kurse/` Mannheim-Warteliste-Button verlinkt bewusst extern auf Fyndery (nicht auf
-  `/kontakt/`) – hält das Fyndery-Profil "warm"/sichtbar. Kostet nichts (Warteliste ist
-  keine Bezahl-Buchung, keine 10%-Gebühr). `noindex` ist zwar jetzt entfernt, aber die
-  Seite braucht noch Zeit, um von Google tatsächlich gecrawlt/gerankt zu werden – erst
-  wenn sich neuverbinden.de selbst als Sichtbarkeits-Kanal bewährt hat, Fyndery-Frage
-  neu bewerten (kündigen vs. weiterlaufen lassen). Eisenberg lief nie über Fyndery,
-  sondern direkt über den Klub.
-- SEO-Basics sind drin (siehe Architektur-Entscheidungen oben), aber kein JSON-LD/
-  strukturierte Daten (z. B. LocalBusiness-Schema) – dafür fehlt eine bestätigte
-  öffentliche Geschäftsadresse. Falls gewünscht, mit Betreiber klären, was als Adresse
-  angegeben werden darf, bevor so ein Schema ergänzt wird.
+## Rechtliches
+
+- Maximilian ist (noch) kein Heilpraktiker. Keine Heil-/Behandlungsversprechen in eigenen Texten. Echte Bewertungen bleiben vollständig, das ist eine bewusste Entscheidung.
+- NRT: „ausgebildet in", nie „zertifiziert". Human Garage: „einer der ersten zertifizierten Coaches in Deutschland" ist geprüft. Nur das kleine Certified-Coach-Logo verwenden.
+- AGB (`/agb/`) und Datenschutz (`/datenschutz/`) sind von Maximilian freigegeben, Texte nur nach seiner Vorlage ändern. Kein „Entwurf"-Hinweis.
+- AGB: Bring-a-Friend-Regel (§7.4), Workshop-Storno 48 h bzw. Frühbucherfrist (§7.3), Kurse 24 h (§7.2), Kleinunternehmer § 19 UStG.
+- Datenschutz: meetergo, forms.app, Fyndery, WhatsApp, Zoom (§8), Stripe inkl. Foto-Abfrage, Fotos/Videos bei Kursen.
+- Bei neuen Diensten (z. B. neues Tool) immer an die Datenschutzerklärung denken und darauf hinweisen.
+
+## Weiterleitungen
+
+**neuverbinden.de** (`Neuverbinden-Upload-NEU/.htaccess`):
+- `/landing` → `https://linktr.ee/neuverbinden` (301, Visitenkarte)
+- `/qrkurs` → Fyndery-Kurs mit `?ref=qr` (302, Flyer)
+- `/begleitung` → `/einzelarbeit/#begleitung` (301, per RewriteRule mit `NE`)
+
+**faszienmanöver.de / faszienmanoever.de** (`Faszienmanoever-Upload/.htaccess`, all-inkl, Domain auf Webspace-Verzeichnis gestellt):
+- `/reset`, `/coach`, `/programs` → Human-Garage-Affiliate-Links mit Ref-Code `MAXWET20BB4D`
+- `/abendkurs` → Fyndery-Kurs mit `?ref=whatsapp`
+- alles andere → `https://neuverbinden.de/kurse/index.html`
+
+Prüfen mit `curl -sI "https://www.faszienmanöver.de/reset"`.
+
+## Arbeitsweise mit Maximilian
+
+- Bei größeren Vorlagen (Briefing-Dokumente): erst zusammenfassen, was sich ändert, offene Punkte und Widersprüche als nummerierte Liste klären, dann umsetzen.
+- Bei Fragen wie „Wie würdest du …?" erst einen kurzen Vorschlag machen, nicht sofort umsetzen.
+- Nach Änderungen immer selbst im Browser oder per `curl` prüfen, bevor „fertig" gemeldet wird.
+- Wenn Maximilian sagt „hat nicht geklappt", zuerst Cache als Ursache ausschließen (Server-Stand per `curl` prüfen), dann echte Fehlersuche.
+- Commits mit aussagekräftiger deutscher Nachricht, kleine Schritte.
+
+## Offen / Wiederkehrend
+
+- Nach dem Workshop am 05.12.2026: Workshop-Box auf `/kurse/`, Startseiten-Hinweise und `/workshop/` aktualisieren oder abbauen.
+- Google-Unternehmensprofil pflegt Maximilian selbst (Texte stehen in seinem Dokument „neuverbinden-texte.md").
+- Stripe-Produktnamen und -Preise ändert Maximilian selbst.
